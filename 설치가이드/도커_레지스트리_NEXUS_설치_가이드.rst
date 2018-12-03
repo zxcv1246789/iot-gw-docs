@@ -36,7 +36,7 @@ Docker Registry Nexus
 * http://[ 설치한 IP ]:8081
 * 관리자 ID/PASSWD -> admin/admin123
 
-.. image:: imgs/01.png
+.. image:: images/01.png
    :height: 10px
    :width: 5px
    :scale: 50 %
@@ -46,7 +46,7 @@ Docker Registry Nexus
 -----------------------------
 2.1 관리자 로그인 후 설정 창 이동
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. image:: imgs/02.png
+.. image:: images/02.png
    :height: 10px
    :width: 5px
    :scale: 50 %
@@ -54,7 +54,7 @@ Docker Registry Nexus
 
 2.2 Repositories -> Create repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. image:: imgs/03.png
+.. image:: images/03.png
    :height: 10px
    :width: 5px
    :scale: 50 %
@@ -62,7 +62,7 @@ Docker Registry Nexus
    
 2.3 docker (hosted) 선택 및 다음과 같이 설정 후 repository를 생성한다.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. image:: imgs/04.png
+.. image:: images/04.png
    :height: 10px
    :width: 5px
    :scale: 50 %
@@ -134,7 +134,7 @@ Docker Registry Nexus
 -------
 5.1 admin 비밀번호 변경
 ^^^^^^^^^^^^^^^^^^^^^^
-.. image:: imgs/05.png
+.. image:: images/05.png
    :height: 10px
    :width: 5px
    :scale: 50 %
@@ -144,7 +144,7 @@ Docker Registry Nexus
 ^^^^^^^^^^^^^^^^^^^^^^^
 * 설정 -> Users -> Create local user
 * 각 입력란에 입력 후 권한을 부여한다.
-.. image:: imgs/06.png
+.. image:: images/06.png
    :height: 10px
    :width: 5px
    :scale: 50 %
@@ -153,7 +153,7 @@ Docker Registry Nexus
 5.3 생성된 repository 와 해당 repository의 image 목록 확인
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * Browse -> Repository 선택
-.. image:: imgs/07.png
+.. image:: images/07.png
    :height: 10px
    :width: 5px
    :scale: 50 %
