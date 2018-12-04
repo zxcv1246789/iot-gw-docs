@@ -9,13 +9,14 @@ Trust AP용 BPF 컴파일 메뉴얼을 제공한다.
 2 장비 구성
 -----------
 
+ATOM 보드 (4 core, 8RAM)
+
 VM ware (4 core, 8RAM)
 
 3 bpf kernel compile
 --------------------
 
-VM ubuntu 16.04 LTS 버전을 설치하며, kernel은 4.4.0-116을 사용하여 아래
-목록을 설치한다.
+VM ubuntu 16.04 LTS 버전을 설치하며, kernel은 4.4.0-116을 사용하여 아래 목록을 설치한다.
 
 3.1 Package
 ~~~~~~~~~~~
