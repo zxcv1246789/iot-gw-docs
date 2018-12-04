@@ -116,6 +116,7 @@ EdgeX
   $ cd compose-files
 
 4 EdgeX(사용자) 실행
+--------------------
 * EdgeX 실행 ( ``compose-files`` 디렉토리에서 실행)
 ::
 
@@ -127,3 +128,12 @@ EdgeX
 ::
 
   $ docker ps -a
+
+5 EdgeX (사용자) 실행 참고
+--------------------------
+* EdgeX 실행 중 mongodb 에러가 날 경우
+  - mongoDB 실행 확인 후 중지
+::
+  
+  $ service mongodb status
+  $ service mongodb stop
