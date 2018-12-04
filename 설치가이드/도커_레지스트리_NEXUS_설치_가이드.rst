@@ -12,6 +12,7 @@ Docker Registry Nexus
 ::
   
   Docker Version : Docker version 18.05.0-ce
+
 1.2 Nexus 설치
 ^^^^^^^^^^^^^^^
 * nexus에서 사용 할 data 폴더 생성 및 권한 변경
@@ -133,17 +134,18 @@ Docker Registry Nexus
 5 기타
 -------
 5.1 admin 비밀번호 변경
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 .. image:: images/05.png
    :height: 10px
    :width: 5px
    :scale: 50 %
    :alt: alternate text
-   
+
 5.2 사용자 계정 생성
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 * 설정 -> Users -> Create local user
 * 각 입력란에 입력 후 권한을 부여한다.
+
 .. image:: images/06.png
    :height: 10px
    :width: 5px
@@ -151,8 +153,9 @@ Docker Registry Nexus
    :alt: alternate text
    
 5.3 생성된 repository 와 해당 repository의 image 목록 확인
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * Browse -> Repository 선택
+
 .. image:: images/07.png
    :height: 10px
    :width: 5px
