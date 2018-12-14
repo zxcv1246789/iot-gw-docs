@@ -479,7 +479,7 @@ nginx는 proxy 기능으로 사용하기 위해 제공되는 메소드, 변수�
 
 .. image:: /설치가이드/images/nginx_05.png
 
-** 그림 - nginx fastcgi.conf 파일 내부 통신관련 변수 지정 일부 **
+**그림 - nginx fastcgi.conf 파일 내부 통신관련 변수 지정 일부**
 
 5.1 http method 설정
 ^^^^^^^^^^^^^^^^^^^^^^
