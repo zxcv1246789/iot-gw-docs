@@ -153,7 +153,7 @@ dnsmasq.conf를 dhcp 서버 구성과 dns 설정을 위해 아래와 같이 수�
 
 ::
 
-  $ sudo vi /etc/network/interface
+  $ sudo vi /etc/network/interfaces
   
 ::
 
@@ -252,7 +252,9 @@ bridge 상태를 확인한다.(interfaces에서 bridge_ports로 연결한 포트
   
   $ brctl show
   
-::image
+.. image:: images/AP_03.png
+   :scale: 50 %
+   :alt: alternate text
 
 9.3 dnsmasq 재시작
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -270,7 +272,7 @@ dnsmasq 상태를 확인한다. (Active : active (running))
 
   $ sudo systemctl status dnsmasq
 
-.. image:: images/AP_03.png
+.. image:: images/AP_04.png
    :scale: 50 %
    :alt: alternate text
 
@@ -283,7 +285,7 @@ Ifconfig 명령어를 통해 br0와 eth0의 ip를 확인한다.
 
   $ ifconfig
   
-.. image:: images/AP_04.png
+.. image:: images/AP_05.png
    :scale: 50 %
    :alt: alternate text
 
