@@ -29,7 +29,7 @@ EdgeX  코어/메타 데이터 확인
    :alt: alternate text
 
 1. SCN-GW 관리 페이지.
-2. 지도에서 선택한 위치에 SCN-GW 를 추가 할 수 있다.
+2. SCN-GW 등록, 수정, 삭제, 조회를 할 수 있다.
 3. SCN-GW 에 연결된 Device 목록을 확인 할 수 있다.
 
 
