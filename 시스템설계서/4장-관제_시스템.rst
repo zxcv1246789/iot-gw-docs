@@ -27,7 +27,6 @@ EdgeX  코어/메타 데이터 확인
    :alt: alternate text
 ..
 
-
     ① SCN-GW 관리 페이지.
     
     ② 지도에서 선택한 위치에 SCN-GW 를 추가 할 수 있다.
