@@ -22,16 +22,15 @@ EdgeX  코어/메타 데이터 확인
 
 4.3.1.1 화면 설계
 ^^^^^^^^^^^^^^^^^^^^^^
-.. image:: images/4.3.1.1-화면.png
+.. image:: images/4.3.1.1-GW관리화면.png
    :scale: 20 %
    :alt: alternate text
-..
 
-    ① SCN-GW 관리 페이지.
-    
-    ② 지도에서 선택한 위치에 SCN-GW 를 추가 할 수 있다.
+① SCN-GW 관리 페이지.
 
-    ③ SCN-GW 에 연결된 Device 목록을 확인 할 수 있다.
+② 지도에서 선택한 위치에 SCN-GW 를 추가 할 수 있다.
+
+③ SCN-GW 에 연결된 Device 목록을 확인 할 수 있다.
 
 
 4.3.1.2 프로세스 구조
