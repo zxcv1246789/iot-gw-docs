@@ -13,7 +13,9 @@ EdgeX  코어/메타 데이터 확인
 
 4.2 실시간 상태 모니터링 설계
 --------------------------------------------------------
-모니터링 화면 설계
+.. image:: images/4.2-모니터링화면.png
+   :scale: 20 %
+   :alt: alternate text
 
 4.3 SCN-보안 게이트웨이 관제 UI/UX 기술 설계
 --------------------------------------------------------
@@ -59,22 +61,39 @@ Mapping Url           Method        Description
 4.3.2 IoT 장치 관리
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-4.3.2.1 화면 그림넣기
+4.3.2.1 화면 설계
 ^^^^^^^^^^^^^^^^^^^^^^
+.. image:: images/4.3.2.1-화면.png
+   :scale: 20 %
+   :alt: alternate text
 
 4.3.2.2 프로세스 구조
 ^^^^^^^^^^^^^^^^^^^^^^
+.. image:: images/4.3.1.2-프로세스구조2.png
+   :scale: 20 %
+   :alt: alternate text
+
+- SCN-GW 웹 브라우저는 Restful API를 사용하여 SCN-GW API 서버에 요청한다.
+- SCN-GW API 서버는 Device 관리 인터페이스를 제공한다.
+- SCN-GW API 서버는 전달받은 요청 결과를 SCN-GW 웹 브라우저에 전달한다.
+- SCN-GW API 서버는 SCN-GW 웹 브라우저로 부터 전달된 Device 정보를 DB에 저장 관리 및 제공한다.
 
 4.3.2.3 API
 ^^^^^^^^^^^^^^^^^^^^^^
-
-
-
+====================  ==========  ============================================
+Mapping Url           Method        Description
+====================  ==========  ============================================
+/{ctx}/gateways        POST         Device 등록
+/{ctx}/gateways        GET          Device 목록 조회
+/{ctx}/gateways/{id}   GET          Device 상세 조회
+/{ctx}/gateways/{id}   PUT          Device 수정
+/{ctx}/gateways/{id}   DELETE       Device 삭제
+====================  ==========  ============================================
 
 4.3.3 IDS/IPS Rule 관리
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4.3.3.1 화면 그림넣기
+4.3.3.1 화면 설계
 ^^^^^^^^^^^^^^^^^^^^^^
 .. image:: images/4.3.3.1-화면.png
    :scale: 20 %
@@ -112,30 +131,78 @@ Mapping Url           Method        Description
 4.3.4 Vulnerability Scan Script 관리
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4.3.4.1 화면 그림넣기
+4.3.4.1 화면 설계
 ^^^^^^^^^^^^^^^^^^^^^^
+.. image:: images/4.3.4.1-화면.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. Vulnerability Scan Script 관리 페이지.
+2. 취약점 점검 도구 스크립트를 추가 할 수 있다.
+3. Script 이름, 설명, 구분 검색조건에 따른 Script 목록을 확인 할 수 있다.
 
 4.3.4.2 프로세스 구조
 ^^^^^^^^^^^^^^^^^^^^^^
+.. image:: images/4.3.1.2-프로세스구조2.png
+   :scale: 20 %
+   :alt: alternate text
+
+- SCN-GW 웹 브라우저는 Restful API를 사용하여 SCN-GW API 서버에 요청한다.
+- SCN-GW API 서버는 Vulnerability Scan Script 관리 인터페이스를 제공한다.
+- SCN-GW API 서버는 전달받은 요청 결과를 SCN-GW 웹 브라우저에 전달한다.
+- SCN-GW API 서버는 SCN-GW 웹 브라우저로 부터 전달된 Vulnerability Scan Script 정보를 DB에 저장 관리 및 제공한다.
 
 4.3.4.3 API
 ^^^^^^^^^^^^^^^^^^^^^^
 
+======================  ==========  ============================================
+Mapping Url             Method        Description
+======================  ==========  ============================================
+/{ctx}/vsscripts        POST         Vulnerability Scan Script 등록
+/{ctx}/vsscripts        GET          Vulnerability Scan Script 목록 조회
+/{ctx}/vsscripts/{id}   GET          Vulnerability Scan Script 상세 조회
+/{ctx}/vsscripts/{id}   PUT          Vulnerability Scan Script 수정
+/{ctx}/vsscripts/{id}   DELETE       Vulnerability Scan Script 삭제
+======================  ==========  ============================================
 
 
 
 4.3.5 사용자 관리
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-4.3.5.1 화면 그림넣기
+4.3.5.1 화면 설계
 ^^^^^^^^^^^^^^^^^^^^^^
+.. image:: images/4.3.5.1-화면.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 사용자 관리 페이지.
+2. 사용자 등록, 수정, 삭제, 조회를 할 수 있다.
+3. 사용자 ID에 따른 목록을 확인 할 수 있다.
 
 4.3.5.2 프로세스 구조
 ^^^^^^^^^^^^^^^^^^^^^^
+.. image:: images/4.3.1.2-프로세스구조3.png
+   :scale: 20 %
+   :alt: alternate text
+
+- SCN-GW 웹 브라우저는 Restful API를 사용하여 SCN-GW API 서버에 요청한다.
+- SCN-GW API 서버는 웹 브라우저로부터 전달 받은 요청을 OAuth 서버로 전달한다.
+- OAuth 서버는 사용자 정보 관리 인터페이스를 제공한다.
+- SCN-GW API 서버는 전달받은 요청 결과를 SCN-GW 웹 브라우저에 전달한다.
+- OAuth 서버는 SCN-GW 웹 브라우저로 부터 전달된 사용자 정보를 DB에 저장 관리 및 제공한다.
 
 4.3.5.3 API
 ^^^^^^^^^^^^^^^^^^^^^^
-
+======================  ==========  ============================================
+Mapping Url             Method        Description
+======================  ==========  ============================================
+/{ctx}/user             POST         사용자 정보 등록
+/{ctx}/user             GET          사용자 정보 목록 조회
+/{ctx}/user/{id}        GET          사용자 정보 상세 조회
+/{ctx}/user/{id}        PUT          사용자 정보 수정
+/{ctx}/user/{id}        DELETE       사용자 정보 삭제
+======================  ==========  ============================================
 
 
 4.4 알림 서비스 기술 설계
