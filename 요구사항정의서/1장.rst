@@ -257,11 +257,11 @@
    :scale: 20 %
    :alt: alternate text
 
-• TLS等 (v1.2이상) 표준 프로토콜을 안전한 Configuration하에 사용
+• TLS (v1.2이상) 표준 프로토콜을 안전한 Configuration하에 사용
 • Key 생성, 배포, 저장, 활용 폐기 등 전체 Key Lifecycle에 대한 안전한 관리 필요
 
 • 안전한 암호 Module/Library 사용            
-   ex) FIPS 140-2[4] 대응 CMVP(Cryptographic Module Validation Program) 인증 암호 모듈              
+   ex) FIPS 140-2 대응 CMVP(Cryptographic Module Validation Program) 인증 암호 모듈              
        CAVP (Cryptography Algorithm Validation Program)  인증 암호 모듈 
 
 4.3 IoT 연결 보안 기술 사례 (OCF/IoTivity)
@@ -298,7 +298,7 @@
    :scale: 20 %
    :alt: alternate text
 
-4.6 ARM TrustZone 기술 Smart Device向 Chip에서 저전력 IoT 향으로 확장
+4.6 ARM TrustZone 기술 Smart Device Chip에서 저전력 IoT 향으로 확장
 ------------------------------------------------------------------------
 • Cortex-A 대상 TrustZone 기술은 Mobile 기기 뿐 아니라 Smart TV, 가전 등 다양한 기기에 적용 
 • IoT device를 위한 저전력 ‘Cortex-M 프로세서’용 TrustZone Architecture 발표 (2015.11) 
@@ -330,9 +330,9 @@
 ----------------------------------------
 • 개발자 Secure Coding Guideline 교육 및 개발 과정 준수 
 • SW 구현/검증 단계 구현 취약점 검증  
-• Open Source 활용時 알려진 취약점 검토 및 Patch  
-   • CVE (Common Vulnerabilities and Exposures) by MITRE[2] 
-   • NVD (National Vulnerability Database) by NIST[3] 
+• Open Source 활용 알려진 취약점 검토 및 Patch  
+   • CVE (Common Vulnerabilities and Exposures) by MITRE
+   • NVD (National Vulnerability Database) by NIST
 • 관련 기술  
    • Static/Dynamic Code Analysis 
    • Fuzzing 
