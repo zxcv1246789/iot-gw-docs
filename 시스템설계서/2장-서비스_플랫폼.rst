@@ -23,6 +23,18 @@ BLE, Z-Wave, Ethernet, NB-IoT, LoRa, RS-232/422, CoAP, REST, MQTT, ZIGBEE 등
 
 2.2.2 지원 서비스
 ~~~~~~~~~~~~~~~~~~~~~~~~
+
+2.2.2.1 EdgeX Foundry
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. image:: images/2.2.2.1-EdgeX구조.png
+   :scale: 20 %
+   :alt: alternate text
+EdgeX Foundry는 핵심 서비스 계층(core-service)을 중심으로 장치 서비스
+계층의 물리적 영역에 걸쳐 있는 오픈 소스 마이크로소스의 모음입니다.
+이러한 서비스는 API를 통해 통신하므로 사용자의 추가적인 이미지 구현으로
+보강 또는 대체될 수 있다.
+
+
 EdgeX 설명...
 
 2.2.3 코어 서비스
