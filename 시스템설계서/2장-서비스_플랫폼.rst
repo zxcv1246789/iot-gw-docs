@@ -154,30 +154,38 @@ EdgeX에서 작동하는 서비스 및 서비스 간 작용, 문제를 logging �
 
  logging API
 ^^^^^^^^^^^
+=========================================================== ========== ===================================================
+**Mapping Url**                                             **Method** **Description**
+=========================================================== ========== ===================================================
+/logs                                                       POST       로그 생성
+/logs/{limit}                                               GET        로그 조회
+/logs/{start}/{end}/{limit}                                 GET        시작일 기준 로그 조회
+/logs/labels/{labels}/{start}/{end}/{limit}                 GET        라벨, 기간 기준 로그 조회
+/logs/originServices/{originServices}/{start}/{end}/{limit} GET        서비스, 기간 기준 로그 조회
+/logs/keywords/{keywords}/{start}/{end}/{limit}             GET        키워드, 기간 기준 로그 조회
+/logs/logLevels/{logLevels}/originServices/                 GET        서비스, 로그레벨, 기간 기준 로그 조회
+{originServices}/{start}/{end}/{limit}
+/logs/logLevels/{logLevels}/originServices/                 GET        로그레벨, 서비스, 라벨, 키워드, 기간 기준 로그 조회
+{originServices}/labels/{labels}/keywords/
+{keywords}/{start}/{end}/{limit}
+/logs/{start}/{end}                                         DELETE     기간 기준 로그 삭제
+/logs/labels/{labels}/{start}/{end}                         DELETE     라벨, 기간 기준 로그 삭제
+/logs/originServices/{originServices}/{start}/{end}         DELETE     서비스, 기간 기준 로그 삭제
+/logs/keywords/{keywords}/{start}/{end}                     DELETE     키워드, 기간 기준 로그 삭제
+/logs/logLevels/{logLevels}/{start}/{end}                   DELETE     로그레벨, 기간 기준 로그 삭제
+/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 기간 기준 로그 삭제
+{originServices}/{start}/{end}
+/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 라벨, 기간 기준 로그 삭제
+{originServices}/labels/{labels}/{start}/{end}
+/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 라벨, 키워드, 기간 기준 로그 삭제
+{originServices}/labels/{labels}/keywords/
+{keywords}/{start}/{end}
+/ping                                                       GET        로깅 서비스 핑 테스트
+/config                                                     GET        로깅 서비스 상태 조회
+=========================================================== ========== ===================================================
 
 
-===================================================================================================================== ========== ===================================================
-**Mapping Url**                                                                                                       **Method** **Description**
-===================================================================================================================== ========== ===================================================
-/logs                                                                                                                 POST       로그 생성
-/logs/{limit}                                                                                                         GET        로그 조회
-/logs/{start}/{end}/{limit}                                                                                           GET        시작일 기준 로그 조회
-/logs/labels/{labels}/{start}/{end}/{limit}                                                                           GET        라벨, 기간 기준 로그 조회
-/logs/originServices/{originServices}/{start}/{end}/{limit}                                                           GET        서비스, 기간 기준 로그 조회
-/logs/keywords/{keywords}/{start}/{end}/{limit}                                                                       GET        키워드, 기간 기준 로그 조회
-/logs/logLevels/{logLevels}/originServices/{originServices}/{start}/{end}/{limit}                                     GET        서비스, 로그레벨, 기간 기준 로그 조회
-/logs/logLevels/{logLevels}/originServices/{originServices}/labels/{labels}/keywords/{keywords}/{start}/{end}/{limit} GET        로그레벨, 서비스, 라벨, 키워드, 기간 기준 로그 조회
-/logs/{start}/{end}                                                                                                   DELETE     기간 기준 로그 삭제
-/logs/labels/{labels}/{start}/{end}                                                                                   DELETE     라벨, 기간 기준 로그 삭제
-/logs/originServices/{originServices}/{start}/{end}                                                                   DELETE     서비스, 기간 기준 로그 삭제
-/logs/keywords/{keywords}/{start}/{end}                                                                               DELETE     키워드, 기간 기준 로그 삭제
-/logs/logLevels/{logLevels}/{start}/{end}                                                                             DELETE     로그레벨, 기간 기준 로그 삭제
-/logs/logLevels/{logLevels}/originServices/{originServices}/{start}/{end}                                             DELETE     로그레벨, 서비스, 기간 기준 로그 삭제
-/logs/logLevels/{logLevels}/originServices/{originServices}/labels/{labels}/{start}/{end}                             DELETE     로그레벨, 서비스, 라벨, 기간 기준 로그 삭제
-/logs/logLevels/{logLevels}/originServices/{originServices}/labels/{labels}/keywords/{keywords}/{start}/{end}         DELETE     로그레벨, 서비스, 라벨, 키워드, 기간 기준 로그 삭제
-/ping                                                                                                                 GET        로깅 서비스 핑 테스트
-/config                                                                                                               GET        로깅 서비스 상태 조회
-===================================================================================================================== ========== ===================================================
+
 
 scheduling 서비스
 ~~~~~~~~~~~~~~~~~~
@@ -318,9 +326,9 @@ Registry & Config 다른 EdgeX Foundry 마이크로서비스에 EdgeX Foundry �
 코어 데이터 서비스 데이터 모델
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.
-
-|https://docs.edgexfoundry.org/_images/EdgeX_CoreDataModel.png|
+.. image:: images/3.2.3.1-core-data서비스.png
+   :scale: 20 %
+   :alt: alternate text
 
 코어 데이터 서비스 데이터 사전
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -340,52 +348,262 @@ Value Descriptor 로그 파일을 지정함
 코어 데이터 API
 ^^^^^^^^^^^^^^^
 
-=================================================================================== ============== ==============================================
-**Mapping Url**                                                                     **Method**     **Description**
-=================================================================================== ============== ==============================================
-/event                                                                              POST, PUT, GET | POST : 새 이벤트 추가
-                                                                                                   | PUT : 이벤트 데이터 수정
-                                                                                                     GET : 모든 이벤트 조회
-/event/{id}                                                                         GET            id 기준 이벤트 조회
-/event/count                                                                        GET            core-data 내 이벤트 갯수 조회
-/event/count/{deviceId}                                                             GET            디바이스 id 기준 core-data 이벤트 갯수 조회
-/event/id/{id}                                                                      DELETE, PUT    DELETE : DB id 기준 이벤트 삭제
-                                                                                                   PUT : DB id 기준 이벤트 수정
-/event/device/{deviceId}/{limit}                                                    GET            디바이스 id 기준 지정 갯수 만큼 이벤트 조회
-/event/device/{deviceId}                                                            DELETE         디바이스 id 기준 이벤트 조회
-/event/{start}/{end}/{limit}                                                        GET            기간, 지정 갯수 만큼 이벤트 조회
-/event/device/{deviceId}/valuedescriptor/{valuedescriptor}/{limit}                  GET            디바이스 id, 판독 값 기준으로 이벤트 조회
-/event/removeold/age/{age}                                                          DELETE         age 기준 이벤트 삭제
-/event/scrub                                                                        DELETE         scrub 관련 푸시 이벤트 전체 삭제
-/reading                                                                            POST, PUT, GET POST : 리소스 추가
-                                                                                                   PUT  : 리소스 수정
-                                                                                                   GET : 전체 리소스 조회
-/reading/count                                                                      GET            전체 리소스 갯수 조회
-/reading/{id}                                                                       GET            id 기준 리소스 조회
-/reading/id/{id}                                                                    DELETE         id 기준 리소스 삭제
-/reading/device/{deviceId}/{limit}                                                  GET            디바이스 id, 갯수 기준 조회
-/reading/name/{name}/device/{device}/{limit}                                        GET            리소스 이름, 디바이스 이름(id), 갯수 기준 조회
-/reading/name/{name}/{limit}                                                        GET            리소스 이름, 갯수 기준 조회
-/reading/uomlabel/{uomLabel}/{limit}                                                GET            UoM 레이블, 갯수 기준 조회
-/reading/label/{label}/{limit}                                                      GET            라벨, 갯수 기준 조회
-/reading/type/{type}/{limit}                                                        GET            타입, 갯수 기준 조회
-/reading/{start}/{end}/{limit}                                                      GET            기간별 기준 조회
-/valuedescriptor                                                                    POST, PUT, GET | POST : 값 설명자 생성
-                                                                                                   | PUT : 값 설명자 수정
-                                                                                                     GET : 값 설명자 조회
-/valuedescriptor/id/{id}                                                            DELETE         id 기준 값 설명자 삭제
-/valuedescriptor/name/{name}                                                        GET, DELETE    GET : 이름 기준 값 설명자 조회
-                                                                                                   DELETE : 이름 기준 값 설명자 삭제
-/valuedescriptor/{id}                                                               GET            id 기준 값 설명 자 조회
-/valuedescriptor/devicename/{name}                                                  GET            디바이스 이름 기준 연관된 모든 값 설명자 조회
-/valuedescriptor/deviceid/{id}                                                      GET            디바이스 id 기준 연관된 모든 값 설명자 조회
-/valuedescriptor/uomlabel/{uomLabel}                                                GET            UoM 라벨 기준 연관된 모든 값 설명자 조회
-/valuedescriptor/label/{label}                                                      GET            레이블 기준 값 설명자 조회
-/ping                                                                               GET            core-data 서비스 핑 테스트
-/config                                                                             GET            core-data 서비스 상태 조회
-=================================================================================== ============== ==============================================
+========================================== ============== ==============================================
+**Mapping Url**                            **Method**     **Description**
+========================================== ============== ==============================================
+/event                                     POST, PUT, GET | POST : 새 이벤트 추가
+                                                          | PUT : 이벤트 데이터 수정
 
-EdgeX 설명...
+                                                          GET : 모든 이벤트 조회
+/event/{id}                                GET            id 기준 이벤트 조회
+/event/count                               GET            core-data 내 이벤트 갯수 조회
+/event/count/{deviceId}                    GET            디바이스 id 기준 core-data 이벤트 갯수 조회
+/event/id/{id}                             DELETE, PUT    DELETE : DB id 기준 이벤트 삭제
+                                                          PUT : DB id 기준 이벤트 수정
+/event/device/{deviceId}/{limit}           GET            디바이스 id 기준 지정 갯수 만큼 이벤트 조회
+/event/device/{deviceId}                   DELETE         디바이스 id 기준 이벤트 조회
+/event/{start}/{end}/{limit}               GET            기간, 지정 갯수 만큼 이벤트 조회
+/event/device/{deviceId}                   GET            디바이스 id, 판독 값 기준으로 이벤트 조회
+
+/valuedescriptor/{valuedescriptor}/{limit}
+/event/removeold/age/{age}                 DELETE         age 기준 이벤트 삭제
+/event/scrub                               DELETE         scrub 관련 푸시 이벤트 전체 삭제
+/reading                                   POST, PUT, GET POST : 리소스 추가
+
+                                                          PUT : 리소스 수정
+
+                                                          GET : 전체 리소스 조회
+/reading/count                             GET            전체 리소스 갯수 조회
+/reading/{id}                              GET            id 기준 리소스 조회
+/reading/id/{id}                           DELETE         id 기준 리소스 삭제
+/reading/device/{deviceId}/{limit}         GET            디바이스 id, 갯수 기준 조회
+/reading/name/{name}/device/               GET            리소스 이름, 디바이스 이름(id), 갯수 기준 조회
+
+{device}/{limit}
+/reading/name/{name}/{limit}               GET            리소스 이름, 갯수 기준 조회
+/reading/uomlabel/{uomLabel}/{limit}       GET            UoM 레이블, 갯수 기준 조회
+/reading/label/{label}/{limit}             GET            라벨, 갯수 기준 조회
+/reading/type/{type}/{limit}               GET            타입, 갯수 기준 조회
+/reading/{start}/{end}/{limit}             GET            기간별 기준 조회
+/valuedescriptor                           POST, PUT, GET | POST : 값 설명자 생성
+                                                          | PUT : 값 설명자 수정
+
+                                                          GET : 값 설명자 조회
+/valuedescriptor/id/{id}                   DELETE         id 기준 값 설명자 삭제
+/valuedescriptor/name/{name}               GET, DELETE    GET : 이름 기준 값 설명자 조회
+
+                                                          DELETE : 이름 기준 값 설명자 삭제
+/valuedescriptor/{id}                      GET            id 기준 값 설명 자 조회
+/valuedescriptor/devicename/{name}         GET            디바이스 이름 기준 연관된 모든 값 설명자 조회
+/valuedescriptor/deviceid/{id}             GET            디바이스 id 기준 연관된 모든 값 설명자 조회
+/valuedescriptor/uomlabel/{uomLabel}       GET            UoM 라벨 기준 연관된 모든 값 설명자 조회
+/valuedescriptor/label/{label}             GET            레이블 기준 값 설명자 조회
+/ping                                      GET            core-data 서비스 핑 테스트
+/config                                    GET            core-data 서비스 상태 조회
+========================================== ============== ==============================================
+
+커멘드 서비스
+~~~~~~~~~~~~~
+
+커멘드 서비스는 장치 및 센서에 명령 또는 동작을 할 수 있게 하는
+서비스이다. 장치에 대한 명령은 GET 명령, 장치 또는 센서의 데이터 요청 및
+명령 PUT, EdgeX Foundry에서 작업을 수행하거나 새 설정 또는 데이터를
+수신하라는 요청을 통해 이루어지며 또한 장치 및 센서 주변에 보호 계층을
+제공하고 있다.
+
+.. image:: images/3.2.3.2-core-command서비스.png
+   :scale: 20 %
+   :alt: alternate text
+
+커멘드 API
+^^^^^^^^^^
+
+=========================================== ========== ================================================
+**Mapping Url**                             **Method** **Description**
+=========================================== ========== ================================================
+/ping                                       GET        core-command 서비스 핑 테스트
+/config                                     GET        core- command 서비스 상태 조회
+/metrics                                    GET        서비스의 metrics 상태 정보 조회
+/device/{id}/command/{commandid}            GET, PUT   GET : 디바이스 id, 커멘드 id 기준 연관 장치 조회
+
+                                                       PUT : 디바이스 id, 커멘드 id 기준 정보 수정
+/device/{id}/adminstate/{adminState}        PUT        디바이스 id 기준 관리자 상태 정보 수정
+/device/{id}/opstate/{opState}              PUT        디바이스 id 기준 장치 op상태 정보수정
+/device/{id}                                GET        디바이스 id 기준 커멘드 offering 조회
+/device/name/{name}/adminstate/{adminState} PUT        디바이스 이름 기준 장치 관리자 상태 정보 수정
+/device/name/{name}/opstate/{opState}       PUT        디바이스 이름 기준 장치 op상태 정보 수정
+/device/name/{name}                         GET        장치 이름 기준 장치 커멘드 정보 조회
+/device                                     GET        모든 장치 커멘드 정보 조회
+=========================================== ========== ================================================
+
+메타데이터 서비스
+~~~~~~~~~~~~~~~~~
+
+메타 데이터 서비스는 장치, 센서에 대한 정보, 데이터 및 유형, 명령 그리고
+다른 서비스에서 사용하는 장치 및 센서와 통신에 필요한 메타데이터를
+관리하는 서비스이다.
+
+메타데이터 서비스 명령 요청 다이어그램.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+|image10|
+
+메타 데이터 API
+^^^^^^^^^^^^^^^
+
+============================================== ============== ====================================================
+**Mapping Url**                                **Method**     **Description**
+============================================== ============== ====================================================
+/ping                                          GET            core-metadata 서비스 핑 테스트
+/config                                        GET            core- metadata 서비스 상태 조회
+/device/id/{id}                                DELETE         디바이스 id 기준 디바이스 삭제
+/device/check/{token}                          GET            id, 이름 기준 장치 리소스 조회
+/device/name/{name}/opstate/{opState}          PUT            장치 이름 기준 상태 수정
+/device/name/{name}/adminstate/{adminState}    PUT            장치 이름 기준 관리 상태 수정
+/device/name/{name}/lastreported/{time}        PUT            장치 이름 기준 시간 수정
+/device/name/{name}/lastreported/              PUT            장치 이름 기준 변경사항 알림 여부 수정
+
+{time}/{notify}
+/device/name/{name}/lastconnected/{time}       PUT            장치 이름 기준 마지막 연결 정보 수정
+/device/name/{name}/lastconnected/             PUT            장치 이름 기준 마지막 통신 시간 설정
+
+{time}/{notify}
+/device/name/{name}                            GET, DELETE    GET : 장치 이름 기준 정보 조회
+
+                                                              DELETE : 장치 이름 기준 정보 삭제
+/device/{id}/opstate/{opState}                 PUT            장치 id 기준 op 상태 수정
+/device/{id}/adminstate/{adminState}           PUT            장치 id 기준 관리자 상태 수정
+/device/{id}/lastreported/{time}               PUT            장치 id 기준 시간 수정
+/device/{id}/lastreported/{time}/{notify}      PUT            장치 id 기준 시간 변경사항 알림 여부 수정
+/device/{id}/lastconnected/{time}              PUT            장치 id 기준 마지막 통신 시간 설정
+/device/{id}/lastconnected/{time}/{notify}     PUT            장치 id 기준 시간 변경사항 알림여부 설정
+/device/{id}                                   GET            장치 id 기준 정보 조회
+/device/label/{label}                          GET            장치 레이블 기준 정보 조회
+/device/profile/{profileId}                    GET            장치 프로파일 id 기준 정보 조회
+/device/service/{serviceId}                    GET            장치 서비스id 기준 정보 조회
+/device/servicename/{servicename}              GET            장치 서비스 이름 기준 정보 조회
+/device/addressablename/{addressablename}      GET            장치 주소 이름 기준 정보 조회
+/device/profilename/{profilename}              GET            장치 프로파일 이름 기준 정보 조회
+/device/addressable/{addressableId}            GET            장치 주소 id 기준 정보 조회
+/device                                        POST, PUT, GET POST : 새로운 장치 생성
+                                                              PUT : 장치 정보 수정
+                                                              GET : 모든 장치 정보 조회
+/deviceprofile/id/{id}                         DELETE         프로파일 id 기준 디바이스 프로파일 정보 삭제
+/deviceprofile/manufacturer/{manufacturer}     GET            제조업체, 모델 기준 디바이스 프로파일 조회
+
+/model/{model}
+/deviceprofile/manufacturer/{manufacturer}     GET            제조업체 기준 디바이스 프로파일 조회
+/deviceprofile/name/{name}                     GET, DELETE    GET : 디바이스 프로파일 이름 기준 프로파일 조회
+
+                                                              DELETE : 디바이스 프로파일 이름 기준 프로파일 삭제
+/deviceprofile/uploadfile                      POST           디바이스 프로파일 YAML 파일 등록
+/deviceprofile/{id}                            GET            디바이스 프로파일 id 기준 프로파일 정보 조회
+/deviceprofile/upload                          POST           디바이스 프로파일 YAML 업로드
+/deviceprofile/yaml/name/{name}                GET            yaml 파일 이름 기준 디바이스 프로파일 조회
+/deviceprofile/yaml/{id}                       GET            yaml 파일 id 기준 디바이스 프로파일 조회
+/deviceprofile/model/{model}                   GET            모델 이름 기준 디바이스 프로파일 조회
+/deviceprofile/label/{label}                   GET            레이블 기준 디바이스 프로파일 정보 조회
+/deviceprofile                                 POST, PUT, GET POST : 디바이스 프로파일 등록
+
+                                                              PUT : 디바이스 프로파일 수정
+
+                                                              GET : 모든 디바이스 프로파일 조회
+/devicereport/id/{id}                          DELETE         id 기준 디바이스 리포트 삭제
+/devicereport/name/{name}                      GET, DELETE    GET : 이름 기준 디바이스 리포트 조회
+
+                                                              DELETE : 이름 기준 디바이스 리포드 삭제
+/devicereport/{id}                             GET            ID 기준 디바이스 리포트 조회
+/devicereport/devicename/{devicename}          GET            디바이스 이름 기준 디바이스 리포트 조회
+/devicereport/valueDescriptorsFor/{devicename} GET            디바이스 이름 기준 디바이스 값 설명자 이름 목록 조회
+/devicereport                                  POST, PUT, GET POST : 디바이스 리포트 생성
+
+                                                              PUT : 디바이스 리포트 수정
+
+                                                              GET : 디바이스 리포트 조회
+/deviceservice/id/{id}                         DELETE         id 기준 디바이스 리포트 삭제
+/deviceservice/addressablename                 GET            주소 지정 이름 기준 모든 연결된 장치 서비스 조회
+
+/{addressablename}
+/deviceservice/name/{name}/opstate/{opState}   PUT            디바이스 서비스 이름 기준 상태 정보 수정
+/deviceservice/name/{name}/                    PUT            디바이스 서비스 이름 기준 관리자 상태 정보 수정
+
+adminstate/{adminState}
+/deviceservice/name/{name}                     PUT            디바이스 서비스 이름 기준 마지막 report 시간 수정
+
+/lastreported/{time}
+/deviceservice/name/{name}                     PUT            디바이스 서비스 이름 기준 마지막 접속 시간 수정
+
+/lastconnected/{time}
+/deviceservice/name/{name}                     GET, DELETE    GET : 디바이스 서비스 이름 기준 정보 조회
+
+                                                              DELETE : 디바이스 서비스 이름 기준 정보 삭제
+/deviceservice/{id}/opstate/{opState}          PUT            디바이스 서비스 아이디 기준 상태 정보 수정
+/deviceservice/{id}/adminstate/{adminState}    PUT            디바이스 서비스 아이디 기준 관리자 상태 정보 수정
+/deviceservice/{id}/lastreported/{time}        PUT            디바이스 서비스 아이디 기준 마지막 report 시간 수정
+/deviceservice/{id}/lastconnected/{time}       PUT            디바이스 서비스 아이디 기준 마지막 접속 시간 수정
+/deviceservice/{id}                            GET            디바이스 서비스 아이디 기준 정보 조회
+/deviceservice/addressable/{addressableId}     GET            디바이스 서비스 지정 주소 기준 정보 조회
+/deviceservice/label/{label}                   GET            디바이스 서비스 레이블 기준 정보 조회
+/deviceservice                                 POST PUT, GET  POST : 디바이스 서비스 생성
+
+                                                              PUT : 디바이스 서비스 수정
+
+                                                              GET : 전체 디바이스 서비스 조회
+/scheduleevent/id/{id}                         DELETE         스케줄 이벤트 아이디 기준 삭제
+/scheduleevent/name/{name}                     GET, DELETE    GET : 스케줄 이벤트 이름 기준 정보 조회
+
+                                                              DELETE : 스케줄 이벤트 이름 기준 정보 삭제
+/scheduleevent/{id}                            GET            스케줄 이벤트 id 기준 정보 조회
+/scheduleevent                                 POST, PUT, GET POST : 스케줄 이벤트 생성
+
+                                                              PUT : 스케줄 이벤트 수정
+
+                                                              GET : 전체 스케줄 이벤트 조회
+/schedule/id/{id}                              DELETE         스케줄 아이디 기준 정보 삭제
+/schedule/{id}                                 GET            스케줄 아이디 기준 정보 조회
+/schedule/name/{name}                          GET, DELETE    GET : 스케줄 이름 기준 정보 조회
+
+                                                              DELETE : 스케줄 이름 기준 정보 삭제
+/schedule                                      POST, PUT, GET POST : 스케줄 생성
+
+                                                              PUT : 스케줄 수정
+
+                                                              GET : 전체 스케줄 정보 조회
+/provisionwatcher/id/{id}                      DELETE         감시자 아이디 기준 감시자 정보 제거
+/provisionwatcher/{id}                         GET            감시자 아이디 기준 정보 조회
+/provisionwatcher/name/{name}                  GET, DELETE    GET : 감시자 이름 기준 정보 조회
+
+                                                              DELETE : 감시자 이름 기준 정보 삭제
+/provisionwatcher/profile/{profileId}          GET            프로파일 id 기준 감시자 정보 조회
+/provisionwatcher/profilename/{profilename}    GET            프로파일 이름 기준 감시자 정보 조회
+/provisionwatcher/service/{serviceId}          GET            서비스 id 기준 감시자 정보 조회
+/provisionwatcher/servicename/{servicename}    GET            서비스 이름 기준 감시자 정보 조회
+/provisionwatcher/identifier/{key}/{value}     GET            키/값 쌍 기준 감시자 정보 조회
+/provisionwatcher                              POST, PUT, GET POST : 감시자 생성
+
+                                                              PUT : 감시자 정보 수정
+
+                                                              GET : 모든 감시자 정보 조회
+/addressable/id/{id}                           DELETE         주소 지정 아이디 기준 주소 삭제
+/addressable/{id}                              GET            주소 지정 아이디 기준 정보 조회
+/addressable/name/{name}                       DELETE, GET    주소 지정 이름 기준 정보 조회
+/addressable/topic/{topic}                     GET            주소 지정 topic 기준 정보 조회
+/addressable/port/{port}                       GET            주소 지정 port 기준 정보 조회
+/addressable/publisher/{publisher}             GET            주소 지정 게시자 기준 정보 조회
+/addressable/address/{address}                 GET            주소 지정 주소 기준 정보 조회
+/addressable                                   POST, PUT, GET POST : 주소 생성
+
+                                                              PUT : 주소 수정
+
+                                                              GET : 모든 주소 정보 조회
+/command/id/{id}                               DELETE         명령 id 기준 정보 삭제
+/command/{id}                                  GET            명령 ID 기준 정보 조회
+/command/name/{name}                           GET            명령 이름 기준 정보 조회
+/command                                       POST, PUT, GET | POST : 명령 생성
+                                                              | PUT : 명령 수정
+
+                                                              GET : 모든 명령 정보 조회
+============================================== ============== ====================================================
 
 
 2.3 네트워크 트래픽 제어 기술 설계
