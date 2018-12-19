@@ -26,13 +26,218 @@ BLE, Z-Wave, Ethernet, NB-IoT, LoRa, RS-232/422, CoAP, REST, MQTT, ZIGBEE 등
 
 2.2.2.1 EdgeX Foundry
 ^^^^^^^^^^^^^^^^^^^^^^^^
+EdgeX Foundry는 핵심 서비스 계층(core-service)을 중심으로 장치 서비스
+계층의 물리적 영역에 걸쳐 있는 오픈 소스 마이크로소스 그룹이다.
+이러한 서비스는 API를 통해 통신하므로 사용자의 추가적인 이미지 구현으로
+보강 또는 대체될 수 있다.
+
 .. image:: images/2.2.2.1-EdgeX구조.png
    :scale: 20 %
    :alt: alternate text
-EdgeX Foundry는 핵심 서비스 계층(core-service)을 중심으로 장치 서비스
-계층의 물리적 영역에 걸쳐 있는 오픈 소스 마이크로소스의 모음입니다.
-이러한 서비스는 API를 통해 통신하므로 사용자의 추가적인 이미지 구현으로
-보강 또는 대체될 수 있다.
+
+core 서비스를 기준으로 South Side, North Side로 나뉜다.
+========== ===================================================================================================================================
+**name**   **Description**
+========== ===================================================================================================================================
+South Side 물리적 영역 내 모든 IoT 객체 및 해당 디바이스, 센서 엑추에이터 등의 IoT 객체와 직접 통신하고 이들로 데이터를 수집하는 네트워크 집합
+North Side 데이터를 수집, 저장, 수집 및 분석하여 정보로 변환하는 클라우드, 엔터프라이즈 시스템 및 통신하는 네트워크.
+========== ===================================================================================================================================
+
+EdgeX는 서비스 간 필요한 상호 운용성을 제공함으로써 물리적인 항목을 보다
+쉽게 ​​모니터하고, 지침을 보내고, 데이터를 수집하고, 안개를 가로 질러
+데이터를 저장, 집계, 분석 및 전환 할 수 있는 클라우드 서비스로 데이터를
+이동시킬 수 있다.
+
+.. image:: images/2.2.2.1-EdgeX범위.png
+   :scale: 20 %
+   :alt: alternate text
+
+즉 EdgeX는 Industrial IoT Edge에 중점적으로 설계되어 있으며 클라우드의
+고유 원칙을 활용함과 동시에 IP 및 비 IP 기반 연결 프로토콜, 광범위하게
+분산 된 컴퓨팅을 위한 보안 및 시스템 관리를 수용하는 등 IoT edge의 특정
+요구사항을 충족하도록 설계되어져 있다.
+
+2.2.2.1.1 EdgeX 서비스 레이어
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EdgeX의 서비스는 크게 4가지 분류로 되어 있다
+
+============== ==============================================================================================
+**name**       **Description**
+============== ==============================================================================================
+core 서비스    edgeX의 핵심 기능 (메타데이터, 코어데이터, 커멘드)을 수행함
+device 서비스  디바이스(IoT)와 상호 작용하는 커넥터 서비스.
+support 서비스 센싱 데이터 분석 및 필터, 로깅, 스케줄링 및 데이터 정리와 같은 일반적인 소프트웨어 응용 서비스
+export 서비스  edgeX와 연결된 (North Side) 클라우드에 데이터 전송 서비스를 수행함.
+============== ==============================================================================================
+
+
+2.2.2.1.1.1 support 서비스 레이어
+-----------------------------------
+
+edgeX에서 제공하고 있는 서포트 서비스 레이어는 다음과 같다.
+
+===================== ====================================================
+**name**              **Description**
+===================== ====================================================
+alert & notifications 다른 객체 혹은 사람에게 알림을 보내는 서비스
+logging               edgex-networks 의 모든 컨테이너 서비스의 로그를 제공
+scheduling            코어 데이터를 호출하여 서비스 이벤트 정리.
+rules engine          이벤트 트리거, 참조 구현을 제공.
+===================== ====================================================
+
+
+alert & notifications 서비스
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+서비스 노드에서 마이크로 서비스간 혹은 사용자, 시스템에 alert을
+보내야하는 경우 alert & notification 서비스에서 해당 정보를 전달한다.
+이는 다른 서비스에서 특정 매개 변수 또는 시스템, 서비스 오작동 및 감지된
+센서 데이터를 broadcast 및 경고, 알람으로 전달한다.
+
+.. image:: images/2.2.2.2.2.1-alert_notification서비스.png
+   :scale: 20 %
+   :alt: alternate text
+
+alert & notifications API
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+===================================================== ============== ==================================
+**Mapping Url**                                       **Method**     **Description**
+===================================================== ============== ==================================
+/notification                                         POST           알림 수신, 배포
+/notification/slug/{slug}                             GET            slug 기준 알림 조회
+/notification/age/{age}                               DELETE         타임 스템프 기준 알림 삭제
+/notification/sender/{sender}/{limit}                 GET            sender 기준으로 알림 조회
+/notification/start/{start}/end/{end}/{limit}         GET            기간별 기준 알림 조회
+/notification/start/{start}/{limit}                   GET            시작일 기준 알림 조회
+/notification/end/{end}/{limit}                       GET            종료일 기준 알림 조회
+/notification/labels/{labels}/{limit}                 GET            레이블 기준 알림 조회
+/notification/new/{limit}                             GET            처리되지 않는 알림 조회
+/subscription                                         GET, POST, PUT GET : 알림 전송 대상 조회
+
+                                                                     POST : 알림 전송 대상 생성
+
+                                                                     PUT : 알림 전송 대상 수정
+/subscription/slug/{slug}                             GET, DELETE    GET : slug 기준 전송 대상 조회
+
+                                                                     DELETE : slug 기준 전송 대상 삭제
+/subscription/categories/{categories}/labels/{labels} GET            라벨, 카테고리 기준 전송 대상 조회
+/subscription/categories/{categories}                 GET            카테고리 기준 전송 대상 조회
+/subscription/labels/{labels}                         GET            라벨 기준 전송 대상 조회
+/subscription/receiver/{receiver}                     GET            이름 기준 전송 대상 조회
+/transmission/slug/{slug}/{limit}                     GET            slag 기준 알림 전송정보 조회
+/transmission/start/{start}/end/{end}/{limit}         GET            기간별 알림 전송정보 조회
+/transmission/start/{start}/{limit}                   GET            시작일 기준 전송정보 조회
+/transmission/end/{end}/{limit}                       GET            종료일 기준 전송정보 조회
+/transmission/escalated/{limit}                       GET            escalated 기준 전송정보 조회
+/transmission/failed/{limit}                          GET            실패된 전송정보 조회
+/transmission/sent/age/{age}                          DELETE         age 기준 전송정보 삭제
+/transmission/escalated/age/{age}                     DELETE         escalated age 기준 전송정보 삭제
+/transmission/acknowledged/age/{age}                  DELETE         수신확인, age 기준 전송정보 삭제
+/transmission/failed/age/{age}                        DELETE         전송 실패, age 기준 전송정보 삭제
+/cleanup                                              DELETE         모든 알림 삭제
+/cleanup/age/{age}                                    DELETE         age 기준 알림 삭제
+/ping                                                 GET            서비스 ping 테스트
+===================================================== ============== ==================================
+
+logging 서비스
+~~~~~~~~~~~~~~~
+
+EdgeX에서 작동하는 서비스 및 서비스 간 작용, 문제를 logging 요청을
+보내는 서비스. debug, info, warn, error, fatal logging 레벨을 지원한다.
+
+.. image:: images/2.2.2.2.2.2-logging서비스.png
+   :scale: 20 %
+   :alt: alternate text
+
+
+
+ logging API
+^^^^^^^^^^^
+
+=========================================================== ========== ===================================================
+**Mapping Url**                                             **Method** **Description**
+=========================================================== ========== ===================================================
+/logs                                                       POST       로그 생성
+/logs/{limit}                                               GET        로그 조회
+/logs/{start}/{end}/{limit}                                 GET        시작일 기준 로그 조회
+/logs/labels/{labels}/{start}/{end}/{limit}                 GET        라벨, 기간 기준 로그 조회
+/logs/originServices/{originServices}/{start}/{end}/{limit} GET        서비스, 기간 기준 로그 조회
+/logs/keywords/{keywords}/{start}/{end}/{limit}             GET        키워드, 기간 기준 로그 조회
+/logs/logLevels/{logLevels}/originServices/                 GET        서비스, 로그레벨, 기간 기준 로그 조회
+
+{originServices}/{start}/{end}/{limit}
+/logs/logLevels/{logLevels}/originServices/                 GET        로그레벨, 서비스, 라벨, 키워드, 기간 기준 로그 조회
+
+{originServices}/labels/{labels}/keywords/
+
+{keywords}/{start}/{end}/{limit
+/logs/{start}/{end}                                         DELETE     기간 기준 로그 삭제
+/logs/labels/{labels}/{start}/{end}                         DELETE     라벨, 기간 기준 로그 삭제
+/logs/originServices/{originServices}/{start}/{end}         DELETE     서비스, 기간 기준 로그 삭제
+/logs/keywords/{keywords}/{start}/{end}                     DELETE     키워드, 기간 기준 로그 삭제
+/logs/logLevels/{logLevels}/{start}/{end}                   DELETE     로그레벨, 기간 기준 로그 삭제
+/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 기간 기준 로그 삭제
+
+{originServices}/{start}/{end}
+/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 라벨, 기간 기준 로그 삭제
+
+{originServices}/labels/{labels}/{start}/{end}
+/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 라벨, 키워드, 기간 기준 로그 삭제
+
+{originServices}/labels/{labels}/keywords/
+
+{keywords}/{start}/{end}
+/ping                                                       GET        로깅 서비스 핑 테스트
+/config                                                     GET        로깅 서비스 상태 조회
+=========================================================== ========== ===================================================
+
+scheduling 서비스
+~~~~~~~~~~~~~~~~~~
+
+scheduling 마이크로 서비스는 edgeX에 구동하고 있는 마이크로 서비스 및
+이벤트를 관리하고 export 된 core-data를 읽는 Scrubbeer 서비스를 동작 및
+관리한다.
+
+scheduling API
+^^^^^^^^^^^^^^
+
+=============== ========== =======================================
+**Mapping Url** **Method** **Description**
+=============== ========== =======================================
+/info/{name}    GET        이름 기준 스케줄 정보 조회
+/ping           GET        scheduling 서비스 핑 테스트
+/flush          GET        모든 스케줄 flush 및 메타데이터 리로드.
+=============== ========== =======================================
+
+rule engine 서비스
+~~~~~~~~~~~~~~~~~~~
+
+rule engine 서비스는 참조, 이벤트 trigger 메커니즘을 제공한다. edgeX에
+들어오는 센서 및 센싱 데이터를 범위 내 판독 및 모니터링 하고 장치 작동을
+trigger 한다.
+
+.. image:: images/2.2.2.2.2.3-rule_engine서비스.png
+   :scale: 20 %
+   :alt: alternate text
+
+rule engine 서비스가 시작되면 자동으로 Export Client Registration
+마이크로 서비스를 호출하여 core-data 에서 나오는 모든 장치 및 센서 판독
+값을 클라이언트로 등록한다. export 서비스 클라이언트의 rule engine
+서비스는 export 마이크로 서비스를 통해 모든 이벤트와 판독 값을 수신한다.
+
+rule engine API
+^^^^^^^^^^^^^^^
+
+===================== ========== ============================
+**Mapping Url**       **Method** **Description**
+===================== ========== ============================
+/rule                 GET, POST  POST : 새 규칙 추가
+
+                                 GET : 모든 규칙 이름 조회
+/rule/name/{rulename} DELETE     이름 기준 규칙 삭제
+/ping                 GET        rule engine 서비스 핑 테스트
+===================== ========== ============================
 
 
 EdgeX 설명...
