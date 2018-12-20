@@ -164,23 +164,11 @@ EdgeX에서 작동하는 서비스 및 서비스 간 작용, 문제를 logging �
 /logs/labels/{labels}/{start}/{end}/{limit}                 GET        라벨, 기간 기준 로그 조회
 /logs/originServices/{originServices}/{start}/{end}/{limit} GET        서비스, 기간 기준 로그 조회
 /logs/keywords/{keywords}/{start}/{end}/{limit}             GET        키워드, 기간 기준 로그 조회
-/logs/logLevels/{logLevels}/originServices/                 GET        서비스, 로그레벨, 기간 기준 로그 조회
-{originServices}/{start}/{end}/{limit}
-/logs/logLevels/{logLevels}/originServices/                 GET        로그레벨, 서비스, 라벨, 키워드, 기간 기준 로그 조회
-{originServices}/labels/{labels}/keywords/
-{keywords}/{start}/{end}/{limit}
 /logs/{start}/{end}                                         DELETE     기간 기준 로그 삭제
 /logs/labels/{labels}/{start}/{end}                         DELETE     라벨, 기간 기준 로그 삭제
 /logs/originServices/{originServices}/{start}/{end}         DELETE     서비스, 기간 기준 로그 삭제
 /logs/keywords/{keywords}/{start}/{end}                     DELETE     키워드, 기간 기준 로그 삭제
 /logs/logLevels/{logLevels}/{start}/{end}                   DELETE     로그레벨, 기간 기준 로그 삭제
-/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 기간 기준 로그 삭제
-{originServices}/{start}/{end}
-/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 라벨, 기간 기준 로그 삭제
-{originServices}/labels/{labels}/{start}/{end}
-/logs/logLevels/{logLevels}/originServices/                 DELETE     로그레벨, 서비스, 라벨, 키워드, 기간 기준 로그 삭제
-{originServices}/labels/{labels}/keywords/
-{keywords}/{start}/{end}
 /ping                                                       GET        로깅 서비스 핑 테스트
 /config                                                     GET        로깅 서비스 상태 조회
 =========================================================== ========== ===================================================
