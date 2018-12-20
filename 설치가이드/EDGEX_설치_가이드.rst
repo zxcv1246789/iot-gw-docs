@@ -137,3 +137,60 @@ EdgeX
   
   $ service mongodb status
   $ service mongodb stop
+
+6 EdgeX (개발자) 실행파일 설치
+------------------------------
+6.1 EdgeX 실행파일 설치 (edgex-go clone)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+::
+
+  $ git clone https://github.com/edgexfoundry/edgex-go.git
+
+- EdgeX 실행파일 clone 확인
+::
+
+  $ cd edgex-go
+  $ ls
+  
+6.2 docker image(hello-world) 생성
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- https://hub.docker.com/ 접속 후 상단에 hello-world 검색
+
+.. image:: images/edgex_01.png
+   :scale: 50 %
+   :alt: alternate text
+   
+- hello-world 클릭
+
+.. image:: images/edgex_02.png
+   :scale: 50 %
+   :alt: alternate text
+   
+- docker pull hello-world 복사
+
+.. image:: images/edgex_03.png
+   :scale: 50 %
+   :alt: alternate text
+   
+6.3 docker-compose 파일 수정
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- ``vi docker-compose.yml`` 수정
+
+::
+
+  삽입할 이미지 정보 입력
+   - images : 도커 이미지 이름
+   - ports : 이미지 포트 지정
+   - container_name : 컨테이너 이름
+   - networks : edgex-network 입력
+
+6.4 EdgeX 실행 (edgex-go 디렉토리에서 실행)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+  $ docker-compose up
+  
+  # 에러 발생 시
+  $ docker-compose down
+  $ docker-compose up
