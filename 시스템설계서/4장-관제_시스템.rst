@@ -261,7 +261,7 @@
    :alt: alternate text
 
 - iptables 서비스는 전달받은 설정 및 요청을 수행하고 로컬 관리 웹 서버에 결과를 전달한다.
-- 로컬관리 웹 서버는 iptables 서비스에 요청한 결과를 iptables rule file에 저장한다.
+- 로컬관리 웹 서버는 iptables 서비스에 현재 적용된 rule을 iptables rule file에 저장한다.
 - 로컬관리 웹 브라우저는 Restful API를 사용하여 로컬관리 웹 서버에 요청한다.
 - 로컬관리 웹 서버는 로컬관리 인터페이스를 제공한다.
 - 로컬관리 웹 서버는 전달받은 요청 결과를 로컬관리 웹 브라우저에 전달한다.
@@ -287,7 +287,7 @@
    :alt: alternate text
 
 - iptables 서비스는 전달받은 설정 및 요청을 수행하고 로컬 관리 웹 서버에 결과를 전달한다.
-- 로컬관리 웹 서버는 iptables 서비스에 요청한 결과를 iptables rule file에 저장한다.
+- 로컬관리 웹 서버는 iptables 서비스에 현재 적용된 rule을 iptables rule file에 저장한다.
 - 로컬관리 웹 브라우저는 Restful API를 사용하여 로컬관리 웹 서버에 요청한다.
 - 로컬관리 웹 서버는 로컬관리 인터페이스를 제공한다.
 - 로컬관리 웹 서버는 전달받은 요청 결과를 로컬관리 웹 브라우저에 전달한다.
