@@ -628,6 +628,274 @@
 
 
 
+4.3.2.3 장치 관리
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.3.2.3.1 장치 목록 조회
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**장치 목록**
+
+.. image:: images/4.3.2.3.1-장치목록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 장치 목록
+2. 장치 등록 페이지 이동
+3. 장치 삭제
+
+4.3.2.3.2 장치 등록
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**장치 등록**
+
+.. image:: images/4.3.2.3.2-장치등록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 장치 입력 정보
+2. 입력된 정보로 등록
+3. 장치 목록 페이지로 이동
+
+4.3.2.3.3 장치 상세정보
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**장치 상세정보**
+
+.. image:: images/4.3.2.3.3-장치상세정보.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 장치 상세 정보
+2. 장치 정보 수정 페이지로 이동
+3. 장치 삭제
+
+
+4.3.2.3.4 장치 수정
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**장치 수정**
+
+.. image:: images/4.3.2.3.4-장치수정.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 장치 입력 정보
+2. 입력된 정보로 수정
+3. 장치 조회 페이지로 이동
+
+
+4.3.2.4 센서  관리
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.3.2.4.1 센서  목록 조회
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**센서 목록**
+
+.. image:: images/4.3.2.4.1-센서목록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 센서 목록
+2. 센서 등록 페이지 이동
+3. 센서 삭제
+
+4.3.2.4.2 센서 등록
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**센서 등록**
+
+.. image:: images/4.3.2.4.2-센서등록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 센서 입력 정보
+2. 입력된 정보로 등록
+3. 센서 목록 페이지로 이동
+
+4.3.2.4.3 센서 상세정보
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**센서 상세정보**
+
+.. image:: images/4.3.2.4.3-센서상세정보.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 센서 상세 정보
+2. 센서 정보 수정 페이지로 이동
+3. 센서 삭제
+
+
+4.3.2.4.4 센서 수정
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**센서 수정**
+
+.. image:: images/4.3.2.4.4-센서수정.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. 센서 입력 정보
+2. 입력된 정보로 수정
+3. 센서 조회 페이지로 이동
+
+4.3.2.5 IDS/IPS 관리
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.3.2.5.1 IDS/IPS 목록 조회
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**IDS/IPS 목록**
+
+.. image:: images/4.3.2.5.1-IDSIPS목록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. IDS/IPS 목록
+2. IDS/IPS 등록 페이지 이동
+3. IDS/IPS 삭제
+
+4.3.2.5.2 IDS/IPS 등록
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**IDS/IPS 등록**
+
+.. image:: images/4.3.2.5.2-IDSIPS등록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. IDS/IPS 입력 정보
+2. 입력된 정보로 등록
+3. IDS/IPS 목록 페이지로 이동
+
+4.3.2.5.3 IDS/IPS 상세정보
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**IDS/IPS 상세정보**
+
+.. image:: images/4.3.2.5.3-IDSIPS상세정보.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. IDS/IPS 상세 정보
+2. IDS/IPS 정보 수정 페이지로 이동
+3. IDS/IPS 삭제
+
+
+4.3.2.5.4 IDS/IPS 수정
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**IDS/IPS 수정**
+
+.. image:: images/4.3.2.5.4-IDSIPS수정.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. IDS/IPS 입력 정보
+2. 입력된 정보로 수정
+3. IDS/IPS 조회 페이지로 이동
+
+4.3.2.6 IDS/IPS Option 관리
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.3.2.6.1 IDS/IPS Option 목록 조회
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**IDS/IPS Option 목록**
+
+.. image:: images/4.3.2.6.1-IDSIPS-OPT-목록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. IDS/IPS Option 목록
+2. IDS/IPS Option 등록 페이지 이동
+3. IDS/IPS Option 삭제
+
+4.3.2.6.2 IDS/IPS Option 등록
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**IDS/IPS Option 등록**
+
+.. image:: images/4.3.2.6.2-IDSIPS-OPT-등록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. IDS/IPS Option 입력 정보
+2. 입력된 정보로 등록
+3. IDS/IPS Option 목록 페이지로 이동
+
+4.3.2.6.3 IDS/IPS Option 상세정보
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**IDS/IPS Option 상세정보**
+
+.. image:: images/4.3.2.6.3-IDSIPS-OPT-상세정보.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. IDS/IPS Option 상세 정보
+2. IDS/IPS Option 정보 수정 페이지로 이동
+3. IDS/IPS Option 삭제
+
+
+4.3.2.6.4 IDS/IPS Option 수정
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**IDS/IPS Option 수정**
+
+.. image:: images/4.3.2.6.4-IDSIPS-OPT-수정.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. IDS/IPS Option 입력 정보
+2. 입력된 정보로 수정
+3. IDS/IPS Option 조회 페이지로 이동
+
+
+
+
+4.3.2.7 Vulnerability scan Scripts  관리
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.3.2.7.1 Vulnerability scan Scripts  목록 조회
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Vulnerability scan Scripts  목록**
+
+.. image:: images/4.3.2.7.1-vss-목록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. Vulnerability scan Scripts  목록
+2. Vulnerability scan Scripts  등록 페이지 이동
+3. Vulnerability scan Scripts  삭제
+
+4.3.2.7.2 Vulnerability scan Scripts  등록
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Vulnerability scan Scripts  등록**
+
+.. image:: images/4.3.2.7.2-vss-등록.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. Vulnerability scan Scripts  입력 정보
+2. script 파일 선택
+3. 입력된 정보로 등록
+4. Vulnerability scan Scripts  목록 페이지로 이동
+
+4.3.2.7.3 Vulnerability scan Scripts  상세정보
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Vulnerability scan Scripts  상세정보**
+
+.. image:: images/4.3.2.7.3-vss-상세정보.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. Vulnerability scan Scripts  상세 정보
+2. script 파일 다운로드
+3. Vulnerability scan Scripts  정보 수정 페이지로 이동
+4. Vulnerability scan Scripts  삭제
+
+
+4.3.2.7.4 Vulnerability scan Scripts  수정
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Vulnerability scan Scripts  수정**
+
+.. image:: images/4.3.2.7.4-vss-수정.png
+   :scale: 20 %
+   :alt: alternate text
+
+1. Vulnerability scan Scripts  입력 정보
+2. script 파일 선택
+3. 입력된 정보로 수정
+4. Vulnerability scan Scripts  조회 페이지로 이동
+
+
+
+
+
+
+
 4.3.3 SCN-보안 게이트웨이 관제 시스템 프로세스 설계
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
