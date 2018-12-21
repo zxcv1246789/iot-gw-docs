@@ -302,15 +302,16 @@ EdgeX  코어/메타 데이터 확인
 
 **API**
 
-=====================  ==========  ============================================
-Mapping Url            Method      Description
-=====================  ==========  ============================================
-/{ctx}/gateway         POST        게이트웨이 등록
-/{ctx}/gateway         GET         게이트웨이 목록 조회
-/{ctx}/gateway/{id}    GET         게이트웨이 상세 조회
-/{ctx}/gateway/{id}    PUT         게이트웨이 수정
-/{ctx}/gateway/{id}    DELETE      게이트웨이 삭제
-=====================  ==========  ============================================
+=======================  ==========  ============================================
+Mapping Url              Method      Description
+=======================  ==========  ============================================
+/{ctx}/gateway           POST        게이트웨이 등록
+/{ctx}/gateway           GET         게이트웨이 목록 조회
+/{ctx}/gateway/{id}      GET         게이트웨이 상세 조회
+/{ctx}/gateway/{id}      PUT         게이트웨이 수정
+/{ctx}/gateway/{id}      DELETE      게이트웨이 삭제
+/{ctx}/gateway/{name}    GET         게이트웨이 이름 중복체크
+=======================  ==========  ============================================
 
 4.3.3.2 디바이스 형상 관리
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -331,11 +332,11 @@ Mapping Url            Method      Description
 =========================  ==========  ============================================
 Mapping Url                Method      Description
 =========================  ==========  ============================================
-/{ctx}/device/shape        POST        Device 형상 등록
-/{ctx}/device/shape        GET         Device 형상 목록 조회
-/{ctx}/device/shape/{id}   GET         Device 형상 상세 조회
-/{ctx}/device/shape/{id}   PUT         Device 형상 수정
-/{ctx}/device/shape/{id}   DELETE      Device 형상 삭제
+/{ctx}/shape/device        POST        Device 형상 등록
+/{ctx}/shape/device        GET         Device 형상 목록 조회
+/{ctx}/shape/device/{id}   GET         Device 형상 상세 조회
+/{ctx}/shape/device/{id}   PUT         Device 형상 수정
+/{ctx}/shape/device/{id}   DELETE      Device 형상 삭제
 =========================  ==========  ============================================
 
 4.3.3.3 디바이스 관리
@@ -354,15 +355,16 @@ Mapping Url                Method      Description
 
 **API**
 
-====================  ==========  ============================================
-Mapping Url           Method      Description
-====================  ==========  ============================================
-/{ctx}/device         POST        Device 등록
-/{ctx}/device         GET         Device 목록 조회
-/{ctx}/device/{id}    GET         Device 상세 조회
-/{ctx}/device/{id}    PUT         Device 수정
-/{ctx}/device/{id}    DELETE      Device 삭제
-====================  ==========  ============================================
+========================  ==========  ============================================
+Mapping Url               Method      Description
+========================  ==========  ============================================
+/{ctx}/device             POST        Device 등록
+/{ctx}/device             GET         Device 목록 조회
+/{ctx}/device/{id}        GET         Device 상세 조회
+/{ctx}/device/{id}        PUT         Device 수정
+/{ctx}/device/{id}        DELETE      Device 삭제
+/{ctx}/device/{name}      GET         Device 이름 중복체크
+========================  ==========  ============================================
 
 4.3.3.4 센서 형상 관리
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -383,11 +385,11 @@ Mapping Url           Method      Description
 =========================  ==========  ============================================
 Mapping Url                Method      Description
 =========================  ==========  ============================================
-/{ctx}/sensor/shape        POST        Sensor 형상 등록
-/{ctx}/sensor/shape        GET         Sensor 형상 목록 조회
-/{ctx}/sensor/shape/{id}   GET         Sensor 형상 상세 조회
-/{ctx}/sensor/shape/{id}   PUT         Sensor 형상 수정
-/{ctx}/sensor/shape/{id}   DELETE      Sensor 형상 삭제
+/{ctx}/shape/sensor        POST        Sensor 형상 등록
+/{ctx}/shape/sensor        GET         Sensor 형상 목록 조회
+/{ctx}/shape/sensor/{id}   GET         Sensor 형상 상세 조회
+/{ctx}/shape/sensor/{id}   PUT         Sensor 형상 수정
+/{ctx}/shape/sensor/{id}   DELETE      Sensor 형상 삭제
 =========================  ==========  ============================================
 
 4.3.3.5 센서 관리
@@ -406,15 +408,16 @@ Mapping Url                Method      Description
 
 **API**
 
-====================  ==========  ============================================
-Mapping Url           Method      Description
-====================  ==========  ============================================
-/{ctx}/sensor         POST        Sensor 등록
-/{ctx}/sensor         GET         Sensor 목록 조회
-/{ctx}/sensor/{id}    GET         Sensor 상세 조회
-/{ctx}/sensor/{id}    PUT         Sensor 수정
-/{ctx}/sensor/{id}    DELETE      Sensor 삭제
-====================  ==========  ============================================
+=======================  ==========  ============================================
+Mapping Url              Method      Description
+=======================  ==========  ============================================
+/{ctx}/sensor            POST        Sensor 등록
+/{ctx}/sensor            GET         Sensor 목록 조회
+/{ctx}/sensor/{id}       GET         Sensor 상세 조회
+/{ctx}/sensor/{id}       PUT         Sensor 수정
+/{ctx}/sensor/{id}       DELETE      Sensor 삭제
+/{ctx}/sensor/{name}     GET         Sensor 이름 중복체크
+=======================  ==========  ============================================
 
 4.3.3.6 센서 임계치 관리
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
