@@ -21,10 +21,6 @@ BLE, Z-Wave, Ethernet, NB-IoT, LoRa, RS-232/422, CoAP, REST, MQTT, ZIGBEE 등
 ~~~~~~~~~~~~~~~~~~~~~~~~
 클라이언트 등록, oneM2M, LWM2M, TR-069 -> docker container...
 
-2.2.2 지원 서비스
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 2.2.2 EdgeX Foundry
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
