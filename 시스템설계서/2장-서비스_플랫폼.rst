@@ -4,14 +4,72 @@
 2.1 IoT 표준 미들웨어 플랫폼 기술 설계
 --------------------------------------
 
-2.1.1 oneM2M, LWM2M, TR-069, ... 
+ .. image:: images/2.1-보안플랫폼_시스템구성도.png
+    :scale: 20 %
+    :alt: alternate text
+
+2.1.1 oneM2M
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 설명....
 
+ |
 
-2.1.2 지원 프로토콜...
-~~~~~~~~~~~~~~~~~~~~~~~
-BLE, Z-Wave, Ethernet, NB-IoT, LoRa, RS-232/422, CoAP, REST, MQTT, ZIGBEE 등
+ .. image:: images/2.1.1-oneM2M.png
+    :scale: 20 %
+    :alt: alternate text
+
+ |
+
+ .. image:: images/2.1.1-1-oneM2M.jpg
+    :scale: 20 %
+    :alt: alternate text
+
+ oneM2M의 IoT 표준 시스템 구조
+
+ |
+
+ .. image:: images/2.1.1-2-oneM2M.png
+    :width: 100%
+    :alt: alternate text
+
+ oneM2M arcutecture
+ 
+ - Mca: the interface point between AE and CSE which provides the applications access to the common services.
+ - Mcc: the reference point between two CSEs.
+ - Mcn: the reference point between CSE and underlying NSE like transport and connectivity services.
+ - Mcc’: the interface between two M2M service providers.
+ - IN: Infrastructure Node
+ - NoDN: Non-oneM2M Device Node
+ 
+ |
+
+2.1.2 TR-069
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+설명....
+
+ .. image:: images/2.1.2-TR069.png
+    :scale: 20 %
+    :alt: alternate text
+
+2.1.3 LWM2M
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+설명....
+
+ .. image:: images/2.1.3-1-LWM2M.png
+    :scale: 20 %
+    :alt: alternate text
+
+ |
+
+ .. image:: images/2.1.3-2-LWM2M.jpg
+    :scale: 20 %
+    :alt: alternate text
+
+ |
+
+ .. image:: images/2.1.3-3-LWM2M.jpg
+    :scale: 20 %
+    :alt: alternate text
 
 
 2.2 컨테이너 기반 IoT 서비스 플랫폼 설계
