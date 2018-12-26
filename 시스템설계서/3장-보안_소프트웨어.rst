@@ -53,7 +53,11 @@ Solid?
 
 3.5.2 행위 이벤트 분석기반 공격 탐지/차단 기술
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: images/3.5.2-공격-탐지-차단-기술.png
+.. image:: images/3.5.2-공격-탐지-차단-기술-01.png
+   :scale: 20 %
+   :alt: alternate text
+
+.. image:: images/3.5.2-공격-탐지-차단-기술-02.png
    :scale: 20 %
    :alt: alternate text
 
