@@ -119,14 +119,28 @@ Maria DB 설치, 설정
   $ sudo yum install MariaDB-server  
   - MariaDB 설치를 시작한다.
 
-  $ systemctl start mariadb  
-  -  mariadb 서비스를 시작한다.
+  $ systemctl start mariadb
+  -  mariadb 서비스를 시작하여 정상적으로 구동하는지 확인한다.
 
-  $ /usr/bin/mysqladmin -u root password ‘twamp’  
-
-  - root 계정의 비밀번호를 변경한다.
-
-  $ mysql –u root -p  
+  $ systemctl stop mariadb
+  - mariadb 서비스를 정지한다.
+  
+  - 그후, mariadb의 root계정의 패스워드를 변경한다.
+  
+  $ sudo /usr/bin/mysqld_safe --skip-grant &
+  - mariadb 서비스를 안전모드로 실행 한다.
+  
+  $ mysql -uroot mysql
+  - root권한으로 mariadb에 접속한다.
+  
+  Mariadb[mysql]> update user set password=password('twamp') where user='root';
+  - root계정의 비밀번호를 변경한다.(여기서는 twamp로 변경한다.)
+  Mariadb[mysql]> flush privileges;
+  - flush 한다.
+  Mariadb[mysql]> exit;
+  - 종료한다.
+  
+  $ mysql –uroot -p  
   - 해당 커맨드를 입력 한 후, 변경한 비밀번호를 입력하여 mariadb에 접속한다.
 
   create database if not exists twamp_portal;                              
@@ -140,7 +154,7 @@ Maria DB 설치, 설정
 
 -  DB 이름은 twamp_portal과 동일하게 해준다.(sql파일 – Table setting
    위해)
-
+   
 -  그 후, quit;를 입력하여 mysql을 빠져나온다.
 
 ::
